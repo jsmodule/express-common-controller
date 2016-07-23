@@ -1,0 +1,31 @@
+{
+  "parser": "babel-eslint",
+  "extends": "eslint:recommended",
+  "ecmaFeatures": {
+    "sourceType": "module"
+  },
+  "env": {
+    "browser": true,
+    "es6": true,
+    "node": true
+  },
+  "globals": {
+    "module": true,
+    "define": true
+  },
+  "rules": {
+    "camelcase": 2,
+    "indent": [2, 2, {"SwitchCase": 1}],
+    "max-params": [2, 5],
+    "max-depth": [2, 2],
+    "complexity": [2, 6],
+    "max-len": [2, 160, 4],
+    "new-cap": 2,
+    "semi": 2,
+    "keyword-spacing": 2,
+    "no-trailing-spaces": 2,
+    "space-before-blocks": 2,
+    "eol-last": 2,
+    "no-multiple-empty-lines": 2
+  }
+}
