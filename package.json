@@ -1,0 +1,34 @@
+{
+  "name": "express-common-controller",
+  "version": "0.1.0",
+  "description": "Common base controller implemented by express",
+  "main": "lib/index.js",
+  "engines": {
+    "node": ">= 0.10.0"
+  },
+  "files": [
+    "lib"
+  ],
+  "scripts": {
+    "start": "node examples/server.js",
+  },
+  "dependencies": {
+    "express": "^4.14.0"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jsmodule/express-common-controller.git"
+  },
+  "keywords": [
+    "nodejs",
+    "express",
+    "controller"
+  ],
+  "author": "thomascxq",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jsmodule/express-common-controller/issues"
+  },
+  "homepage": "https://github.com/jsmodule/express-common-controller#readme"
+}
