@@ -10,10 +10,10 @@
     "lib"
   ],
   "scripts": {
-    "start": "babel-node examples/server.js",
+    "start": "node public/server.js",
     "lint": "eslint src",
-    "clean": "rm -rf ./lib",
-    "build": "babel src -d lib",
+    "clean": "rm -rf ./lib ./public",
+    "build": "babel src -d lib && babel examples -d public",
     "test": "mocha --compilers js:babel-register test/js/",
     "prepublish": "npm install && npm prune && npm run build"
   },
@@ -28,7 +28,9 @@
     "babel-register": "^6.11.5",
     "eslint": "^3.1.1",
     "expect.js": "^0.3.1",
+    "express-controller-middleware": "^0.4.0",
     "mocha": "^2.5.3",
+    "path": "^0.12.7",
     "sinon": "^1.17.4"
   },
   "repository": {

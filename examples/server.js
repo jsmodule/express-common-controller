@@ -1,13 +1,12 @@
 import express from 'express';
+import controllerMiddleware from './js/controller-middleware';
 
 const app = express();
 
 app.set('host', process.env.HOST || '0.0.0.0');
 app.set('port', process.env.PORT || 3000);
 
-app.get('/', (req, res) => {
-  res.send('Hello World');
-});
+app.use(controllerMiddleware);
 
 app.listen(app.get('port'), app.get('host'), (err) => {
   if (err) {

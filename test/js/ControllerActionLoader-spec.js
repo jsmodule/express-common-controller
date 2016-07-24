@@ -1,14 +1,14 @@
 import sinon from 'sinon';
 import expect from 'expect.js';
 import ExampleController from './fake/ExampleController';
-import ControllerClassLoader from '../../src/js/ControllerClassLoader';
+import ControllerActionLoader from '../../src/js/ControllerActionLoader';
 
-describe('ControllerClassLoader', () => {
+describe('ControllerActionLoader', () => {
   let classLoader;
 
   describe('loadAction', () => {
     beforeEach(() => {
-      classLoader = new ControllerClassLoader();
+      classLoader = new ControllerActionLoader();
     });
 
     it('return undefined when provide invalid controller', () => {
