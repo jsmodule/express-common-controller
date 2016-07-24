@@ -14,7 +14,8 @@
     "lint": "eslint src",
     "clean": "rm -rf ./lib",
     "build": "babel src -d lib",
-    "test": "mocha --compilers js:babel-register test/js/"
+    "test": "mocha --compilers js:babel-register test/js/",
+    "prepublish": "npm install && npm prune && npm run build"
   },
   "dependencies": {
     "express": "^4.14.0"
@@ -26,8 +27,9 @@
     "babel-preset-stage-0": "^6.5.0",
     "babel-register": "^6.11.5",
     "eslint": "^3.1.1",
-    "expect": "^1.20.2",
-    "mocha": "^2.5.3"
+    "expect.js": "^0.3.1",
+    "mocha": "^2.5.3",
+    "sinon": "^1.17.4"
   },
   "repository": {
     "type": "git",
