@@ -10,7 +10,7 @@
     "lib"
   ],
   "scripts": {
-    "start": "node examples/server.js",
+    "start": "babel-node examples/server.js",
     "lint": "eslint src",
     "clean": "rm -rf ./lib",
     "build": "babel src -d lib",

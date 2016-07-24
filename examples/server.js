@@ -1,11 +1,11 @@
-const express = require('express');
+import express from 'express';
 
 const app = express();
 
 app.set('host', process.env.HOST || '0.0.0.0');
 app.set('port', process.env.PORT || 3000);
 
-app.get('/', function(req, res) {
+app.get('/', (req, res) => {
   res.send('Hello World');
 });
 
