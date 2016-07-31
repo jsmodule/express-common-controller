@@ -18,8 +18,8 @@ class BaseController {
     return this.res;
   }
 
-  render(response) {
-    this.res.send(response);
+  render(message) {
+    this.res.send(message);
   }
 
   renderJson(jsonObj) {

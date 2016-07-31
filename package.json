@@ -15,7 +15,7 @@
     "clean": "rm -rf ./lib ./public",
     "build": "babel src -d lib && babel examples -d public",
     "test": "mocha --compilers js:babel-register test/js/",
-    "prepublish": "npm install && npm prune && npm run build"
+    "prepublish": "npm run clean && npm run build"
   },
   "dependencies": {
     "express": "^4.14.0"
@@ -26,12 +26,13 @@
     "babel-preset-es2015": "^6.9.0",
     "babel-preset-stage-0": "^6.5.0",
     "babel-register": "^6.11.5",
+    "chai": "^3.5.0",
     "eslint": "^3.1.1",
-    "expect.js": "^0.3.1",
     "express-controller-middleware": "^0.4.0",
     "mocha": "^2.5.3",
     "path": "^0.12.7",
-    "sinon": "^1.17.4"
+    "sinon": "^1.17.4",
+    "sinon-chai": "^2.8.0"
   },
   "repository": {
     "type": "git",
