@@ -1,6 +1,6 @@
 {
   "name": "express-common-controller",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Common base controller implemented by express",
   "main": "lib/index.js",
   "engines": {
