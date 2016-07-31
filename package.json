@@ -15,7 +15,8 @@
     "clean": "rm -rf ./lib ./public",
     "build": "npm run clean && babel src -d lib && babel examples -d public",
     "test": "npm run lint && mocha --compilers js:babel-register test/js/",
-    "prepublish": "npm run clean && npm run build"
+    "prepublish": "npm run clean && npm run build",
+    "release": "/bin/bash ./ci/git-release.sh"
   },
   "dependencies": {
     "express": "^4.14.0"
@@ -43,7 +44,8 @@
     "express",
     "controller"
   ],
-  "author": "thomascxq",
+  "author": "thomascxq <thomascxq@gmail.com>",
+  "contributors": [],
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/jsmodule/express-common-controller/issues"
