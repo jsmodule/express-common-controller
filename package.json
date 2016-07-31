@@ -13,8 +13,8 @@
     "start": "node public/server.js",
     "lint": "eslint src",
     "clean": "rm -rf ./lib ./public",
-    "build": "babel src -d lib && babel examples -d public",
-    "test": "mocha --compilers js:babel-register test/js/",
+    "build": "npm run clean && babel src -d lib && babel examples -d public",
+    "test": "npm run lint && mocha --compilers js:babel-register test/js/",
     "prepublish": "npm run clean && npm run build"
   },
   "dependencies": {
