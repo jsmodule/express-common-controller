@@ -14,9 +14,12 @@
     "lint": "eslint src",
     "clean": "rm -rf ./lib ./public",
     "build": "npm run clean && babel src -d lib && babel examples -d public",
-    "test": "npm run lint && mocha --compilers js:babel-register test/js/",
-    "prepublish": "npm run clean && npm run build",
-    "release": "/bin/bash ./ci/git-release.sh"
+    "test": "mocha --compilers js:babel-register test/js/",
+    "all-test": "npm run lint && npm run test",
+    "prepare": "npm install && npm prune && npm run build",
+    "git-release": "/bin/bash ./ci/git-release.sh",
+    "npm-release": "/bin/bash ./ci/npm-release.sh",
+    "release": "npm run git-release && npm run npm-release"
   },
   "dependencies": {
     "express": "^4.14.0"
