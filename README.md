@@ -50,38 +50,38 @@ export default HelloController;
 
 ### Second step:
 
-Create a middleware using `express-controller-middleware`. Please refer to here: [express-controller-middleware](https://www.npmjs.com/package/express-controller-middleware)
+Create a router config using `express-common-router`. Please refer to here: [express-common-router](https://www.npmjs.com/package/express-common-router)
 
-We need to set two loader into express-controller-middleware.
+We need to set two loader into router config.
 
 ```js
 const path = require('path');
 const babelRegister = require('babel-register');
-const ControllerMiddleware = require('express-controller-middleware');
+const ExpressCommonRouter = require('express-common-router').ExpressCommonRouter;
 const ControllerLoader = require('express-common-controller').ControllerLoader;
 const ControllerActionLoader = require('express-common-controller').ControllerActionLoader;
 
-const middleware = new ControllerMiddleware();
+const router = new ExpressCommonRouter();
 
-middleware.setControllerPath(path.join(__dirname, './controllers'));
-middleware.setControllerLoader(new ControllerLoader());
-middleware.setActionLoader(new ControllerActionLoader());
+router.controllerPath = path.join(__dirname, './js/controllers');
+router.controllerLoader = new ControllerLoader();
+router.actionLoader = new ControllerActionLoader();
 
-middleware.get('/hello', 'HelloController#index');
+router.get('/hello', 'HelloController#hello');
 
-module.exports = middleware;
+module.exports = router.routes();
 ```
 
 ### Third step:
 
-Using middleware in server.js
+Using routes config in server.js
 
 ```js
 const express = require('express');
-const controllerMiddleware = require('./js/controller-middleware');
+const routes = require('./routes');
 const app = express();
 
-app.use(controllerMiddleware);
+app.use(routes);
 
 app.listen(3000, '0.0.0.0', (err) => {
   if (err) {

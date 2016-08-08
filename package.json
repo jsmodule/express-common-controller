@@ -32,7 +32,7 @@
     "babel-register": "^6.11.5",
     "chai": "^3.5.0",
     "eslint": "^3.1.1",
-    "express-controller-middleware": "^0.4.0",
+    "express-common-router": "^0.1.0",
     "mocha": "^2.5.3",
     "path": "^0.12.7",
     "sinon": "^1.17.4",
