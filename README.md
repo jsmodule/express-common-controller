@@ -2,6 +2,14 @@
 
 This is a common controller for using express
 
+Current Status:
+
+[![NPM Version](https://img.shields.io/npm/v/express-common-controller.svg)](https://npmjs.org/package/express-common-controller)
+[![NPM Downloads](https://img.shields.io/npm/dm/express-common-controller.svg)](https://npmjs.org/package/express-common-controller)
+[![Build Status](https://travis-ci.org/jsmodule/express-common-controller.svg?branch=master)](https://travis-ci.org/jsmodule/express-common-controller)
+
+[![NPM](https://nodei.co/npm/express-common-controller.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/express-common-controller/)
+
 ## Installation
 
 ```
