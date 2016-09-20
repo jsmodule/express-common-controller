@@ -15,7 +15,7 @@
     "clean": "rm -rf ./lib ./public",
     "build": "npm run clean && babel src -d lib && babel examples -d public",
     "unit-test": "mocha --compilers js:babel-register test/js/",
-    "test": "npm run lint && npm run test",
+    "test": "npm run lint && npm run unit-test",
     "prepare": "npm install && npm prune && npm run build",
     "git-release": "/bin/bash ./ci/git-release.sh",
     "npm-release": "/bin/bash ./ci/npm-release.sh",
