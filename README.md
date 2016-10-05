@@ -20,7 +20,7 @@ $ npm install express-common-controller
 
 ### First step:
 
-Create a controller base on BaseController.
+Create a controller inherit BaseController.
 
 * HelloController.js
 
@@ -58,27 +58,23 @@ export default HelloController;
 
 ### Second step:
 
-Create a router config using `express-common-router`. Please refer to here: [express-common-router](https://www.npmjs.com/package/express-common-router)
-
-We need to set two loader into router config.
+Create a router config like this:
 
 ```js
 const path = require('path');
-const babelRegister = require('babel-register');
-const ExpressCommonRouter = require('express-common-router').ExpressCommonRouter;
-const ControllerLoader = require('express-common-controller').ControllerLoader;
-const ControllerActionLoader = require('express-common-controller').ControllerActionLoader;
+const ExpressCommonControllerRouter = require('express-common-controller').default;
 
-const router = new ExpressCommonRouter();
+const router = new ExpressCommonControllerRouter();
 
-router.controllerPath = path.join(__dirname, './js/controllers');
-router.controllerLoader = new ControllerLoader();
-router.actionLoader = new ControllerActionLoader();
+router.path = path.join(__dirname, './js/controllers');
 
 router.get('/hello', 'HelloController#hello');
 
 module.exports = router.routes();
 ```
+
+**NOTE** `ExpressCommonControllerRouter` based on `ExpressCommonRouter`.
+More info please refer to here:[express-common-router](https://www.npmjs.com/package/express-common-router)
 
 ### Third step:
 
@@ -97,7 +93,6 @@ app.listen(3000, '0.0.0.0', (err) => {
     return;
   }
 });
-
 ```
 
 ### Config your routes.
