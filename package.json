@@ -10,11 +10,12 @@
     "lib"
   ],
   "scripts": {
-    "start": "node public/server.js",
+    "start": "npm run build && node public/server.js",
     "lint": "eslint src",
     "clean": "rm -rf ./lib ./public",
-    "build": "npm run clean && babel src -d lib && babel examples -d public",
-    "unit-test": "mocha --compilers js:babel-register test/js/",
+    "babel": "babel src -d lib && babel examples -d public",
+    "build": "npm run clean && npm run babel",
+    "unit-test": "mocha --compilers js:babel-register test/*.js",
     "test": "npm run lint && npm run unit-test",
     "prepare": "npm install && npm prune && npm run build",
     "git-release": "/bin/bash ./ci/git-release.sh",
@@ -22,7 +23,9 @@
     "release": "npm run git-release && npm run npm-release"
   },
   "dependencies": {
-    "express": "^4.14.0"
+    "common-basic-validator": "^0.3.1",
+    "express": "^4.14.0",
+    "express-common-router": "^2.1.0"
   },
   "devDependencies": {
     "babel-cli": "^6.11.4",
@@ -32,7 +35,6 @@
     "babel-register": "^6.11.5",
     "chai": "^3.5.0",
     "eslint": "^3.1.1",
-    "express-common-router": "^1.0.0",
     "mocha": "^2.5.3",
     "path": "^0.12.7",
     "sinon": "^1.17.4",

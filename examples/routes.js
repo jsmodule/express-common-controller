@@ -1,13 +1,9 @@
 import path from 'path';
-import babelRegister from 'babel-register';
-import { ExpressCommonRouter } from 'express-common-router';
-import { ControllerLoader, ControllerActionLoader } from '../lib';
+import ExpressCommonControllerRouter from '../lib';
 
-const router = new ExpressCommonRouter();
+const router = new ExpressCommonControllerRouter();
 
-router.controllerPath = path.join(__dirname, './js/controllers');
-router.controllerLoader = new ControllerLoader();
-router.actionLoader = new ControllerActionLoader();
+router.path = path.join(__dirname, './js/controllers');
 
 router.get('/hello', 'HelloController#hello');
 router.get('/test/index', 'TestController#index');
