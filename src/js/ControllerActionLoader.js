@@ -1,25 +1,24 @@
+import { ClassValidator } from 'common-basic-validator';
 import BaseController from './BaseController';
 
 class ControllerActionLoader {
   constructor() { }
 
   loadAction(Controller, actionName) {
-    if (this.isValid(Controller, actionName)) {
+    if (this._isValid(Controller, actionName)) {
       return (req, res) => {
-        let controller = new Controller();
-        controller.request = req;
-        controller.response = res;
+        let controller = new Controller(req, res);
         Controller.prototype[actionName].apply(controller);
       };
     }
   }
 
-  isValid(Controller, actionName) {
-    return this.isKindOfBaseController(Controller) && Controller.prototype.hasOwnProperty(actionName);
+  _isValid(Controller, actionName) {
+    return this._isExtendBaseController(Controller) && ClassValidator.hasMethod(Controller, actionName);
   }
 
-  isKindOfBaseController(Controller) {
-    return Controller != undefined && Controller != null && Controller.prototype instanceof BaseController;
+  _isExtendBaseController(Controller) {
+    return ClassValidator.isClass(Controller) && ClassValidator.isExtend(BaseController, Controller);
   }
 }
 

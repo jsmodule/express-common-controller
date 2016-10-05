@@ -7,14 +7,14 @@ import ControllerActionLoader from '../../src/js/ControllerActionLoader';
 chai.use(SinonChai);
 
 describe('ControllerActionLoader', () => {
-  let actionLoader;
+  let actionLoader, InvalidController;
+
   beforeEach(() => {
     actionLoader = new ControllerActionLoader();
   });
 
-  describe('loadAction', () => {
+  describe('#loadAction', () => {
     it('should return undefined when provide invalid controller', () => {
-      let InvalidController;
       expect(actionLoader.loadAction(InvalidController)).to.be.undefined;
     });
 
@@ -31,7 +31,7 @@ describe('ControllerActionLoader', () => {
     });
   });
 
-  describe('loadAction#callBack', () => {
+  describe('#loadAction#callBack', () => {
     let callBack, stubClass, stubController;
 
     beforeEach(() => {
