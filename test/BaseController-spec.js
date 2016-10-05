@@ -1,7 +1,7 @@
 import sinon from 'sinon';
 import chai, { expect } from 'chai';
 import SinonChai from 'sinon-chai';
-import BaseController from '../../src/js/BaseController';
+import BaseController from '../src/js/BaseController';
 chai.use(SinonChai);
 
 describe('BaseController', () => {
@@ -10,7 +10,9 @@ describe('BaseController', () => {
   let res = { send: () => {}, json: () => {}, jsonp: () => {} }
 
   beforeEach(() => {
-    controller = new BaseController(req, res);
+    controller = new BaseController();
+    controller.request = req;
+    controller.response = res;
   });
 
   describe('#render', () => {

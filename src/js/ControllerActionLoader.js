@@ -6,8 +6,10 @@ class ControllerActionLoader {
   loadAction(Controller, actionName) {
     if (this._isValid(Controller, actionName)) {
       return (req, res) => {
-        let controller = new Controller(req, res);
-        Controller.prototype[actionName].apply(controller);
+        let controllerObj = new Controller();
+        controllerObj.request = req;
+        controllerObj.response = res;
+        Controller.prototype[actionName].apply(controllerObj);
       };
     }
   }

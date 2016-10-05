@@ -2,7 +2,7 @@ import sinon from 'sinon';
 import chai, { expect } from 'chai';
 import SinonChai from 'sinon-chai';
 import NewStyleController from './fixtures/NewStyleController';
-import ControllerActionLoader from '../../src/js/ControllerActionLoader';
+import ControllerActionLoader from '../src/js/ControllerActionLoader';
 chai.use(SinonChai);
 
 describe('ControllerActionLoader', () => {

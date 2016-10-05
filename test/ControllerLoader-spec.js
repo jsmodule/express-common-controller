@@ -1,7 +1,7 @@
 import path from 'path';
 import { expect } from 'chai';
+import ControllerLoader from '../src/js/ControllerLoader';
 import SingleController from './fixtures/SingleController';
-import ControllerLoader from '../../src/js/ControllerLoader';
 import OldStyleController from './fixtures/OldStyleController';
 import NewStyleController from './fixtures/NewStyleController';
 

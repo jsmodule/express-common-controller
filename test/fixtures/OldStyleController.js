@@ -1,4 +1,4 @@
-import BaseController from '../../../src/js/BaseController'
+import BaseController from '../../src/js/BaseController'
 
 function OldStyleController() { }
 
