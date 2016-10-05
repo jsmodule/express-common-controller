@@ -105,3 +105,7 @@ app.listen(3000, '0.0.0.0', (err) => {
 This component support all methods which supported by `express`.
 
 About the details of config route, please refer to here: [Express Router](http://www.expressjs.com.cn/guide/routing.html)
+
+## License
+
+express-common-controller is released under the MIT license.
