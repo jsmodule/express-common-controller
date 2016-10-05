@@ -1,32 +1,22 @@
+import BaseController from './BaseController';
+import { ClassValidator } from 'common-basic-validator';
+
 class ControllerLoader {
   constructor() { }
 
-  loadController(controllerFile) {
-    let controller = require(controllerFile);
-    if (this.isValid(controller)) {
-      return this.getController(controller);
-    }
+  loadHandler(controllerFile) {
+    let Controller = this._requireController(controllerFile);
+    return this._isValid(Controller) ? Controller : null;
   }
 
-  getController(controller) {
-    return controller.hasOwnProperty('default')? controller.default : controller;
+  _requireController(controllerFile) {
+    let Controller = require(controllerFile);
+    return Controller && Controller.__esModule ? Controller.default : Controller;
   }
 
-  isValid(controller) {
-    return isValidObj(controller) && (!isEmpty(controller) || isFunction(controller));
+  _isValid(Controller) {
+    return ClassValidator.isClass(Controller) && ClassValidator.isExtend(BaseController, Controller);
   }
-}
-
-function isValidObj(obj) {
-  return obj !== undefined && obj !== null;
-}
-
-function isEmpty(obj) {
-  return Object.keys(obj) < 1;
-}
-
-function isFunction(fun) {
-  return typeof fun === 'function';
 }
 
 export default ControllerLoader;
