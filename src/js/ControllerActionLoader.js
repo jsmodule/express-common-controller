@@ -1,5 +1,4 @@
 import { ClassValidator } from 'common-basic-validator';
-import BaseController from './BaseController';
 
 class ControllerActionLoader {
   constructor() { }
@@ -14,11 +13,7 @@ class ControllerActionLoader {
   }
 
   _isValid(Controller, actionName) {
-    return this._isExtendBaseController(Controller) && ClassValidator.hasMethod(Controller, actionName);
-  }
-
-  _isExtendBaseController(Controller) {
-    return ClassValidator.isClass(Controller) && ClassValidator.isExtend(BaseController, Controller);
+    return ClassValidator.isClass(Controller) && ClassValidator.hasMethod(Controller, actionName);
   }
 }
 

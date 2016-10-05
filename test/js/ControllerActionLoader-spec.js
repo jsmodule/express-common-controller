@@ -1,7 +1,6 @@
 import sinon from 'sinon';
 import chai, { expect } from 'chai';
 import SinonChai from 'sinon-chai';
-import SingleController from './fixtures/SingleController';
 import NewStyleController from './fixtures/NewStyleController';
 import ControllerActionLoader from '../../src/js/ControllerActionLoader';
 chai.use(SinonChai);
@@ -16,10 +15,6 @@ describe('ControllerActionLoader', () => {
   describe('#loadAction', () => {
     it('should return undefined when provide invalid controller', () => {
       expect(actionLoader.loadAction(InvalidController)).to.be.undefined;
-    });
-
-    it('should return undefined when provide a controller not based on BaseController', () => {
-      expect(actionLoader.loadAction(SingleController)).to.be.undefined;
     });
 
     it('should return undefined when provide invalid action', () => {
