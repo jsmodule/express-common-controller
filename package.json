@@ -1,6 +1,6 @@
 {
   "name": "express-common-controller",
-  "version": "3.0.0",
+  "version": "3.1.0",
   "description": "Common base controller implemented by express",
   "main": "lib/index.js",
   "engines": {
@@ -10,22 +10,21 @@
     "lib"
   ],
   "scripts": {
-    "start": "npm run build && node public/server.js",
+    "start": "yarn run build && node public/server.js",
     "lint": "eslint src",
     "clean": "rm -rf ./lib ./public",
     "babel": "babel src -d lib && babel examples -d public",
-    "build": "npm run clean && npm run babel",
-    "unit-test": "mocha --compilers js:babel-register test/*.js",
-    "test": "npm run lint && npm run unit-test",
-    "prepare": "npm install && npm prune && npm run build",
-    "git-release": "/bin/bash ./ci/git-release.sh",
-    "npm-release": "/bin/bash ./ci/npm-release.sh",
-    "release": "npm run git-release && npm run npm-release"
+    "build": "yarn run clean && yarn run babel",
+    "test": "yarn run lint && yarn run test:unit",
+    "test:unit": "mocha --compilers js:babel-register test/*.js",
+    "release": "yarn run release:git && yarn run release:npm",
+    "release:git": "/bin/bash ./ci/git-release.sh",
+    "release:npm": "/bin/bash ./ci/npm-release.sh"
   },
   "dependencies": {
-    "common-basic-validator": "^0.3.1",
+    "common-basic-validator": "^0.3.2",
     "express": "^4.14.0",
-    "express-common-router": "^2.1.0"
+    "express-common-router": "^2.2.1"
   },
   "devDependencies": {
     "babel-cli": "^6.11.4",

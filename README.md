@@ -13,7 +13,7 @@ Current Status:
 ## Installation
 
 ```
-$ npm install express-common-controller
+$ npm|yarn install express-common-controller
 ```
 
 ## Usage

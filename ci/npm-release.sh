@@ -1,5 +1,6 @@
 #! bin/bash
 set -e -u
 
-npm run prepare
+yarn install
+yarn run build
 npm publish
